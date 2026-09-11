@@ -1,0 +1,53 @@
+============================================================
+GATE 8 ACCEPTANCE TEST: PARAMETER-MATCHED CLASSICAL CONTROL FUSION
+============================================================
+Timestamp: 2026-09-09T13:59:53.191381
+Using device: cuda
+
+[1/3] Processing Block Parameter Breakdown (Target: 72 parameters):
+  processing.layers.0.weight          :   18 params (shape [3, 6])
+  processing.layers.1.weight          :   18 params (shape [3, 6])
+  processing.layers.2.weight          :   18 params (shape [3, 6])
+  processing.layers.3.weight          :   18 params (shape [3, 6])
+  TOTAL PROCESSING PARAMS             :   72
+  Exact Parameter Match (72 params == Quantum Circuit 72 params): PASSED
+
+Full Module Parameter Accounting:
+  video_compress.weight              :   2304 params (shape [3, 768])
+  video_compress.bias                :      3 params (shape [3])
+  audio_compress.weight              :   2304 params (shape [3, 768])
+  audio_compress.bias                :      3 params (shape [3])
+  processing.layers.0.weight         :     18 params (shape [3, 6])
+  processing.layers.1.weight         :     18 params (shape [3, 6])
+  processing.layers.2.weight         :     18 params (shape [3, 6])
+  processing.layers.3.weight         :     18 params (shape [3, 6])
+  expand.weight                      :   3072 params (shape [512, 6])
+  expand.bias                        :    512 params (shape [512])
+  layernorm.weight                   :    512 params (shape [512])
+  layernorm.bias                     :    512 params (shape [512])
+  TOTAL MODULE TRAINABLE PARAMS      :   9294
+
+[2/3] Shape Verification:
+  Input:  [T=15, 768] + [T=15, 768]
+  Output: [15, 512]
+  Shape check [T, 768] + [T, 768] -> [T, 512]: PASSED
+  Batched shape check [B=4, T=15, 512]: PASSED
+
+[3/3] Gradient Flow Verification:
+  video_compress.weight              : grad norm = 0.000091 [OK]
+  video_compress.bias                : grad norm = 0.000001 [OK]
+  audio_compress.weight              : grad norm = 0.000051 [OK]
+  audio_compress.bias                : grad norm = 0.000001 [OK]
+  processing.layers.0.weight         : grad norm = 0.000005 [OK]
+  processing.layers.1.weight         : grad norm = 0.000007 [OK]
+  processing.layers.2.weight         : grad norm = 0.000005 [OK]
+  processing.layers.3.weight         : grad norm = 0.000003 [OK]
+  expand.weight                      : grad norm = 0.000002 [OK]
+  expand.bias                        : grad norm = 0.000002 [OK]
+  layernorm.weight                   : grad norm = 208.575912 [OK]
+  layernorm.bias                     : grad norm = 339.411255 [OK]
+  Gradient flow back through all layers and inputs: PASSED
+
+============================================================
+GATE 8 VERIFICATION RESULT: PASSED
+============================================================

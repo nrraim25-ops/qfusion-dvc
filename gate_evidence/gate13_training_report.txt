@@ -1,0 +1,28 @@
+===============================================================================================
+GATE 13 & 19 ACCEPTANCE TEST: FULL INTEGRATION & TRAINING REPORT (15 RUNS, n=5 SEEDS)
+===============================================================================================
+Timestamp: 2026-09-09T16:20:14.478775
+Protocol: 3 Conditions (classical, classical_matched, quantum) x 5 Seeds (42, 123, 2024, 7, 999)
+
+Condition            | Seed   | Epochs   | Stop Reason                  | Train Loss   | Val Loss     | Checkpoint
+---------------------------------------------------------------------------------------------------------
+classical            | 42     | 20       | early_stopping_patience      | 12.1362      | 13.0561      | model_best.pt
+classical            | 123    | 20       | early_stopping_patience      | 11.8739      | 12.9044      | model_best.pt
+classical            | 2024   | 20       | early_stopping_patience      | 11.9769      | 13.1374      | model_best.pt
+classical            | 7      | 27       | early_stopping_patience      | 10.4053      | 12.7081      | model_best.pt
+classical            | 999    | 29       | early_stopping_patience      | 10.2151      | 12.8048      | model_best.pt
+classical_matched    | 42     | 20       | early_stopping_patience      | 11.8051      | 13.1695      | model_best.pt
+classical_matched    | 123    | 19       | early_stopping_patience      | 11.4266      | 13.0374      | model_best.pt
+classical_matched    | 2024   | 20       | early_stopping_patience      | 11.9916      | 13.1129      | model_best.pt
+classical_matched    | 7      | 30       | early_stopping_patience      | 10.0280      | 12.5219      | model_best.pt
+classical_matched    | 999    | 40       | early_stopping_patience      | 9.1500       | 12.4215      | model_best.pt
+quantum              | 42     | 20       | early_stopping_patience      | 11.9698      | 13.0525      | model_best.pt
+quantum              | 123    | 35       | early_stopping_patience      | 9.7426       | 12.4552      | model_best.pt
+quantum              | 2024   | 20       | early_stopping_patience      | 11.9555      | 13.0783      | model_best.pt
+quantum              | 7      | 31       | early_stopping_patience      | 10.0861      | 12.5328      | model_best.pt
+quantum              | 999    | 37       | early_stopping_patience      | 9.7636       | 12.6911      | model_best.pt
+---------------------------------------------------------------------------------------------------------
+
+All 15 runs verified with strictly finite losses and saved checkpoints.
+GATE 19 VERIFICATION RESULT: PASSED
+===============================================================================================

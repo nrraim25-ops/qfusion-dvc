@@ -1,0 +1,38 @@
+=====================================================================================
+GATE 15 ACCEPTANCE TEST: NUMERICAL & BIBLIOGRAPHIC TRACEABILITY VERIFICATION REPORT
+=====================================================================================
+Timestamp: 2026-09-11T13:46:19.133183
+Manuscript Target: /home/arvr-lab-19/Desktop/DVC/qfusion-dvc/paper_draft/manuscript.md
+Bibliography Target: /home/arvr-lab-19/Desktop/DVC/qfusion-dvc/paper_draft/references.bib
+Data Sources: /home/arvr-lab-19/Desktop/DVC/qfusion-dvc/results/eval_results.json, /home/arvr-lab-19/Desktop/DVC/qfusion-dvc/gate_evidence/gate21_systems_profile.json
+
+--- PART 1: NUMERICAL FIGURES TRACEABILITY ---
+Checking programmatic consistency between manuscript text and results JSON:
+- Classical F1@0.5: 0.316 -> Found in manuscript: YES
+- Classical METEOR: 5.19 -> Found in manuscript: YES
+- Matched Classical F1@0.5: 0.319 -> Found in manuscript: YES
+- Matched Classical METEOR: 4.30 -> Found in manuscript: YES
+- Quantum F1@0.5: 0.404 -> Found in manuscript: YES
+- Quantum METEOR: 6.23 -> Found in manuscript: YES
+- Wilcoxon p-value (0.0625): Found in manuscript: YES
+- Quantum Simulation Latency (9.895): Found in manuscript: YES
+- Simulation Overhead Ratio (34.28x): Found in manuscript: YES
+
+--- PART 2: BIBLIOGRAPHIC & CITATION TRACEABILITY ---
+Auditing citations against peer-reviewed publications and verified preprints:
+- [krishna2017dense] (Krishna et al., 2017 | ICCV 2017): In BibTeX: YES, In Manuscript: YES, Title Verified: YES
+- [wang2021pdvc] (Wang et al., 2021 | ICCV 2021): In BibTeX: YES, In Manuscript: YES, Title Verified: YES
+- [mun2019sdvc] (Mun et al., 2019 | CVPR 2019): In BibTeX: YES, In Manuscript: YES, Title Verified: YES
+- [choi2023sbs] (Choi et al., 2023 | IEEE Access 2023): In BibTeX: YES, In Manuscript: YES, Title Verified: YES
+- [iashin2020mdvc] (Iashin & Rahtu, 2020a | CVPRW 2020): In BibTeX: YES, In Manuscript: YES, Title Verified: YES
+- [iashin2020bmt] (Iashin & Rahtu, 2020b | BMVC 2020): In BibTeX: YES, In Manuscript: YES, Title Verified: YES
+- [zhong2026evmf] (Zhong et al., 2026 | Journal of Supercomputing 2026): In BibTeX: YES, In Manuscript: YES, Title Verified: YES
+- [qasim2025survey] (Qasim et al., 2025 | ACM Computing Surveys 2025): In BibTeX: YES, In Manuscript: YES, Title Verified: YES
+- [qeif2025echo] (Zahra et al., 2025 | Research Square 2025): In BibTeX: YES, In Manuscript: YES, Title Verified: YES
+- [henderson2020quanvolutional] (Henderson et al., 2020 | Quantum Machine Intelligence 2020): In BibTeX: YES, In Manuscript: YES, Title Verified: YES
+- [bergholm2018pennylane] (Bergholm et al., 2018 | arXiv:1811.04968): In BibTeX: YES, In Manuscript: YES, Title Verified: YES
+
+Fabricated / Phantom Citations Count: 0
+Traceability Audit Result: 100% of numerical figures and citation metadata are fully verified.
+GATE 15 VERIFICATION RESULT: PASSED
+=====================================================================================

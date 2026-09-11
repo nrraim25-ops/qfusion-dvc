@@ -1,0 +1,19 @@
+============================================================
+GATE 6 ACCEPTANCE TEST: TSP PRETRAINING REPORT
+============================================================
+Timestamp: 2026-09-09T13:59:06.078890
+IoU Threshold Rule: 50% overlap for foreground snippet labeling
+Stopping Rule: 20 epochs maximum, early stopping with patience 3
+
+Modality   | Best Epoch   | Stopped Epoch  | Best Val Loss  | Boundary Sharpness
+------------------------------------------------------------------------
+video      | 1            | 4              | 3.7818         | 0.0214            
+audio      | 1            | 4              | 19.1438        | 0.0027            
+------------------------------------------------------------------------
+
+Video TSP Checkpoint: /home/arvr-lab-19/Desktop/DVC/qfusion-dvc/backbones/vivit_tsp.pt (EXISTS: True)
+Audio TSP Checkpoint: /home/arvr-lab-19/Desktop/DVC/qfusion-dvc/backbones/ast_tsp.pt (EXISTS: True)
+Boundary Sharpness Plot: /home/arvr-lab-19/Desktop/DVC/qfusion-dvc/results/plots/tsp_boundary_sharpness.png (EXISTS: True)
+
+GATE 6 VERIFICATION RESULT: PASSED
+============================================================

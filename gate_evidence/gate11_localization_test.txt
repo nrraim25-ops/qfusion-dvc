@@ -1,0 +1,40 @@
+============================================================
+GATE 11 ACCEPTANCE TEST: LOCALIZATION HEAD VERIFICATION
+============================================================
+Timestamp: 2026-09-09T14:01:51.311025
+Using device: cuda
+
+[1/4] Structural Specification Check:
+  Number of Event Queries: 30 (expected: 30)
+  Decoder Layers (Deep Supervision): 3
+  Hungarian Cost Weights: L1=5.0, tIoU=2.0, Class=1.0
+  Event queries count check (30 queries): PASSED
+  Hungarian Cost Weights (exact 5/2/1): PASSED
+
+[2/4] Shape Verification:
+  pred_logits shape:     [2, 30, 1] (expected [2, 30, 1])
+  pred_segments shape:   [2, 30, 2] (expected [2, 30, 2])
+  query_features shape:  [2, 30, 512] (expected [2, 30, 512])
+  Deep supervision layers: 2 auxiliary layers
+  Output shapes verification: PASSED
+  Deep supervision auxiliary outputs check (2 layers): PASSED
+
+[3/4] Hungarian Bipartite Matching and Loss Test:
+  loss_cls            : 0.778618
+  loss_l1             : 1.045978
+  loss_tiou           : 0.752898
+  loss_cls_aux_0      : 0.808324
+  loss_l1_aux_0       : 1.118585
+  loss_tiou_aux_0     : 0.776454
+  loss_cls_aux_1      : 0.858102
+  loss_l1_aux_1       : 1.202008
+  loss_tiou_aux_1     : 0.801486
+  total_loss          : 8.142451
+  Hungarian Matching & Deep Supervision Loss: PASSED
+
+[4/4] Gradient Flow Verification:
+  Gradient flow through localization head and encoder features: PASSED
+
+============================================================
+GATE 11 VERIFICATION RESULT: PASSED
+============================================================

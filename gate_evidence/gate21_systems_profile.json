@@ -1,0 +1,49 @@
+{
+  "platform": "NVIDIA GeForce RTX 4070 SUPER",
+  "backbone_latency_ms": 5314.166136999973,
+  "conditions": {
+    "classical": {
+      "mean_epoch_time_s": 1.7789115326000116,
+      "std_epoch_time_s": 0.07008623508516701,
+      "epochs_to_stop": 20,
+      "total_training_wall_clock_s": 35.57823065200023,
+      "peak_gpu_memory_mb": 773.107421875,
+      "mean_fusion_latency_ms": 0.1981981333301519,
+      "std_fusion_latency_ms": 0.03751640184244778,
+      "mean_e2e_latency_ms": 3.048014933328129,
+      "std_e2e_latency_ms": 0.19597161521841752,
+      "quantum_breakdown": null
+    },
+    "classical_matched": {
+      "mean_epoch_time_s": 1.774209740599997,
+      "std_epoch_time_s": 0.019565027878245274,
+      "epochs_to_stop": 20,
+      "total_training_wall_clock_s": 35.48419481199994,
+      "peak_gpu_memory_mb": 731.1923828125,
+      "mean_fusion_latency_ms": 0.31866866666708427,
+      "std_fusion_latency_ms": 0.04513940177412496,
+      "mean_e2e_latency_ms": 2.9193610000030885,
+      "std_e2e_latency_ms": 0.11232429644341416,
+      "quantum_breakdown": null
+    },
+    "quantum": {
+      "mean_epoch_time_s": 3.355799438400015,
+      "std_epoch_time_s": 0.08925074832686589,
+      "epochs_to_stop": 20,
+      "total_training_wall_clock_s": 67.1159887680003,
+      "peak_gpu_memory_mb": 727.1591796875,
+      "mean_fusion_latency_ms": 10.924328533330177,
+      "std_fusion_latency_ms": 1.9578865226233082,
+      "mean_e2e_latency_ms": 13.119659266677294,
+      "std_e2e_latency_ms": 0.7332840550202901,
+      "quantum_breakdown": {
+        "classical_compress_ms": 0.10014120000126545,
+        "pennylane_circuit_ms": 9.895261066666686,
+        "classical_expand_ms": 0.09502060000083172,
+        "total_internal_ms": 10.090422866668783,
+        "pennylane_circuit_fraction_pct": 98.06587093958743,
+        "classical_layers_fraction_pct": 1.9341290505021806
+      }
+    }
+  }
+}

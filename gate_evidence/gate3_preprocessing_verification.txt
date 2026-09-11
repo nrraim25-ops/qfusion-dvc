@@ -1,0 +1,18 @@
+============================================================
+GATE 3 ACCEPTANCE TEST: PREPROCESSING PIPELINE VERIFICATION
+============================================================
+Timestamp: 2026-09-09T13:41:58.995328
+Found 62 downloaded videos.
+Testing snippet extraction on real video: v_4x7HYKV8zkY.mp4
+  Extraction successful for duration: 115.86s
+  Number of 2.0s snippets (T): 57
+  Video snippets tensor shape: torch.Size([57, 32, 3, 224, 224])
+  Audio snippets tensor shape: torch.Size([57, 32000])
+  Audio sample rate: 16000 Hz (mono)
+  Video snippet dimensions check [T, 32, 3, 224, 224]: PASSED
+  Audio snippet dimensions check [T, 32000] (16kHz mono): PASSED
+  Finite values check (no NaNs): PASSED
+
+============================================================
+GATE 3 VERIFICATION RESULT: PASSED
+============================================================

@@ -1,0 +1,31 @@
+============================================================
+GATE 10 ACCEPTANCE TEST: DEFORMABLE + SPARSE ENCODER VERIFICATION
+============================================================
+Timestamp: 2026-09-09T14:01:19.313661
+Using device: cuda
+
+[1/4] Structural Specification Check:
+  Embedding Dimension: 512
+  Attention Heads: 4
+  Sampling Points per Head: 4
+  Pruning Ratio after Layer 2: 50.0%
+  Sampling points check (K=4 points): PASSED
+  Sparsification keep ratio check (50% pruning after layer 2): PASSED
+
+[2/4] Shape Verification:
+  Input sequence shape: [T=20, 512]
+  Output sequence shape: [20, 512]
+  Saliency scores shape: [20]
+  Retained tokens count: 10 (expected: 10)
+  Unbatched shape check [T, 512] -> [T, 512] with 50% pruning: PASSED
+  Batched shape check [B=4, T=20, 512] -> [B=4, T=20, 512]: PASSED
+
+[3/4] Gradient Flow Verification:
+  Gradient flow back through all layers and input sequence: PASSED
+
+[4/4] Generating Sparsification Keep Ratio Plot...
+  Saved plot: /home/arvr-lab-19/Desktop/DVC/qfusion-dvc/results/plots/sparsification_keep_ratio.png
+
+============================================================
+GATE 10 VERIFICATION RESULT: PASSED
+============================================================

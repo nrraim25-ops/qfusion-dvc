@@ -1,0 +1,28 @@
+============================================================
+GATE 12 ACCEPTANCE TEST: CONTEXT MASK & CAPTIONING HEAD VERIFICATION
+============================================================
+Timestamp: 2026-09-09T14:02:29.358301
+Using device: cuda
+
+[1/3] Differentiable Context Mask Verification:
+  Context vectors shape: [2, 30, 512] (expected [2, 30, 512])
+  Soft-pooling weights shape: [2, 30, 20] (expected [2, 30, 20])
+  Context vectors shape check: PASSED
+  Context Mask differentiability check (gradients flow to enc_out & segs): PASSED
+
+[2/3] Captioning Head Verification (GloVe 300d embeddings & Teacher Forcing):
+  Word embedding dimension: 300 (GloVe 300d format)
+  Beam Search Width: 5 (expected: 5)
+  GloVe 300d & Beam width 5 check: PASSED
+  GloVe embedding table weight initialization: PASSED
+  Teacher forcing logits shape: [2, 30, 10, 1000] (expected [2, 30, 10, 1000])
+  Captioning decoder forward shape check: PASSED
+  Captioning decoder gradient flow check: PASSED
+
+[3/3] Beam Search Decoding Inference Verification (Width 5):
+  Beam Search Generated Tokens Shape: [1, 5, 15] (expected [1, 5, 15])
+  Beam Search width 5 decoding test: PASSED
+
+============================================================
+GATE 12 VERIFICATION RESULT: PASSED
+============================================================

@@ -1,0 +1,19 @@
+============================================================
+GATE 4 ACCEPTANCE TEST: ViViT VIDEO BACKBONE VERIFICATION
+============================================================
+Timestamp: 2026-09-09T13:52:47.074106
+Using device: cuda
+Loading real video: v_LFeoVokXAFY.mp4
+Input video snippet batch shape: torch.Size([4, 32, 3, 224, 224])
+
+Loading ViViT backbone (google/vivit-b-16x2-kinetics400)...
+ViViT Model Loaded: 89,236,992 total parameters (89,236,992 trainable)
+Running forward feature extraction on batch...
+Extracted feature shape: torch.Size([4, 768])
+Output shape verification [T, 768]: PASSED (got torch.Size([4, 768]))
+Checking gradient flow through ViViT...
+ViViT Gradient Flow Test: PASSED
+
+============================================================
+GATE 4 VERIFICATION RESULT: PASSED
+============================================================

@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Caches
+.cache/
+*.cache
+.pytest_cache/
+
+# Model weights & Checkpoints (multi-gigabyte binaries)
+*.pt
+*.pth
+*.bin
+*.safetensors
+backbones/checkpoints/
+
+# Raw dataset videos and extracted multimodal features
+data/videos/
+data/features/
+data/sample_test.mp4
+*.mp4
+*.mkv
+*.avi
+*.wav
+*.mp3
+
+# Binaries
+bin/
+bin/ffmpeg
+bin/ffprobe
+
+# Archives & Temporary files
+*.zip
+*.tar
+*.tar.gz
+*.log

@@ -1,0 +1,20 @@
+# Main Pipeline Configuration: Quantum Fusion (6 qubits, 72 params)
+fusion_type: "quantum"
+embed_dim: 512
+num_queries: 30
+vocab_size: 5000
+glove_dim: 300
+beam_width: 5
+max_seq_len: 25
+
+# Training schedule per Section 8
+lr_backbone: 1.0e-5
+lr_heads: 1.0e-4
+weight_decay: 1.0e-4
+grad_clip: 1.0
+warmup_epochs: 2
+max_epochs: 50
+patience: 5
+batch_size: 4 # Auto-halved on OOM per Section 8
+
+checkpoint_root: "results/quantum"

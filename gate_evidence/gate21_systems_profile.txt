@@ -1,0 +1,40 @@
+==========================================================================================
+GATE 21 ACCEPTANCE TEST: SYSTEMS AND HARDWARE COST PROFILING REPORT
+Target Venue: Journal of Supercomputing
+==========================================================================================
+Timestamp: 2026-09-11T12:01:19.370134
+Compute Platform: NVIDIA GeForce RTX 4070 SUPER
+Measurement Timing Protocol: time.perf_counter() with strict torch.cuda.synchronize()
+
+--- SECTION 1: TRAINING WALL-CLOCK TIME & PEAK GPU MEMORY ---
+Condition            | Sec/Epoch (Mean±Std)   | Epochs   | Total Wall-Clock (s)   | Peak GPU Mem (MB) 
+--------------------------------------------------------------------------------------------------
+classical            | 1.779 ± 0.070          | 20       | 35.58 s                | 773.11 MB         
+classical_matched    | 1.774 ± 0.020          | 20       | 35.48 s                | 731.19 MB         
+quantum              | 3.356 ± 0.089          | 20       | 67.12 s                | 727.16 MB         
+--------------------------------------------------------------------------------------------------
+
+--- SECTION 2: INFERENCE LATENCY BREAKDOWN PER VIDEO (val_1 set, n=15) ---
+Shared Backbone Latency (ViViT + AST + Extraction): 5314.17 ms per video
+  - Snippet extraction (ffmpeg): 3987.27 ms
+  - Dual backbone forward passes: 1326.90 ms
+
+Condition            | Fusion Only (ms)       | End-to-End Model (ms)    | Total Latency w/ Backbone (ms)  
+---------------------------------------------------------------------------------------------------------
+classical            | 0.198 ± 0.038          | 3.048 ± 0.196            | 5317.21 ms                      
+classical_matched    | 0.319 ± 0.045          | 2.919 ± 0.112            | 5317.09 ms                      
+quantum              | 10.924 ± 1.958         | 13.120 ± 0.733           | 5327.29 ms                      
+---------------------------------------------------------------------------------------------------------
+
+--- SECTION 3: QUANTUM CIRCUIT SIMULATION OVERHEAD BREAKDOWN ---
+Analysis of QuantumCrossModalAttention forward execution on default.qubit:
+- Classical Compression Layers:   0.100 ms (0.99%)
+- PennyLane Circuit Simulation:  9.895 ms (98.07%)
+- Classical Expansion Layers:     0.095 ms (0.94%)
+- Total Internal Forward Time:    10.090 ms
+
+Finding: PennyLane statevector simulation accounts for 98.1% of total quantum fusion latency.
+Classical matched control fusion latency is 0.319 ms vs quantum 10.924 ms (Simulation overhead ratio: 34.28x).
+
+GATE 21 VERIFICATION RESULT: PASSED
+==========================================================================================

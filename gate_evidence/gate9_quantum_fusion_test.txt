@@ -1,0 +1,67 @@
+============================================================
+GATE 9 ACCEPTANCE TEST: QUANTUM FUSION VERIFICATION
+============================================================
+Timestamp: 2026-09-09T14:00:48.265919
+Using simulation device: cpu (PennyLane default.qubit)
+
+[1/4] Quantum Circuit Parameter Breakdown (Target: 72 parameters):
+  quantum_weights shape: [4, 6, 3]
+  Trainable Quantum Parameters: 72
+  Exact Quantum Parameter Match (72 params): PASSED
+
+Full Module Parameter Accounting:
+  quantum_weights               :     72 params (shape [4, 6, 3])
+  video_compress.weight         :   2304 params (shape [3, 768])
+  video_compress.bias           :      3 params (shape [3])
+  audio_compress.weight         :   2304 params (shape [3, 768])
+  audio_compress.bias           :      3 params (shape [3])
+  expand.weight                 :   3072 params (shape [512, 6])
+  expand.bias                   :    512 params (shape [512])
+  layernorm.weight              :    512 params (shape [512])
+  layernorm.bias                :    512 params (shape [512])
+  TOTAL MODULE TRAINABLE PARAMS :   9294
+
+[2/4] Printed Quantum Circuit Diagram:
+0: ──RY(0.00)──Rot(0.00,0.00,0.00)────╭X─╭●──Rot(0.00,0.00,0.00)─────────────────────────╭X─╭● ···
+1: ──RY(0.00)──Rot(0.00,0.00,0.00)────│──╰X─╭●────────────────────Rot(0.00,0.00,0.00)────│──╰X ···
+2: ──RY(0.00)──Rot(0.00,0.00,0.00)─╭●─│─────╰X────────────────────Rot(0.00,0.00,0.00)─╭●─│──── ···
+3: ──RY(0.00)──Rot(0.00,0.00,0.00)─╰X─│──╭●──Rot(0.00,0.00,0.00)──────────────────────╰X─│──╭● ···
+4: ──RY(0.00)──Rot(0.00,0.00,0.00)────│──╰X─╭●────────────────────Rot(0.00,0.00,0.00)────│──╰X ···
+5: ──RY(0.00)──Rot(0.00,0.00,0.00)────╰●────╰X────────────────────Rot(0.00,0.00,0.00)────╰●─── ···
+
+0: ··· ──Rot(0.00,0.00,0.00)─────────────────────────╭X─╭●──Rot(0.00,0.00,0.00) ···
+1: ··· ─╭●────────────────────Rot(0.00,0.00,0.00)────│──╰X─╭●────────────────── ···
+2: ··· ─╰X────────────────────Rot(0.00,0.00,0.00)─╭●─│─────╰X────────────────── ···
+3: ··· ──Rot(0.00,0.00,0.00)──────────────────────╰X─│──╭●──Rot(0.00,0.00,0.00) ···
+4: ··· ─╭●────────────────────Rot(0.00,0.00,0.00)────│──╰X─╭●────────────────── ···
+5: ··· ─╰X────────────────────Rot(0.00,0.00,0.00)────╰●────╰X────────────────── ···
+
+0: ··· ─────────────────────────╭X─╭●────┤  <Z>
+1: ··· ──Rot(0.00,0.00,0.00)────│──╰X─╭●─┤  <Z>
+2: ··· ──Rot(0.00,0.00,0.00)─╭●─│─────╰X─┤  <Z>
+3: ··· ──────────────────────╰X─│──╭●────┤  <Z>
+4: ··· ──Rot(0.00,0.00,0.00)────│──╰X─╭●─┤  <Z>
+5: ··· ──Rot(0.00,0.00,0.00)────╰●────╰X─┤  <Z>
+  Circuit diagram verification: PASSED
+
+[3/4] Shape Verification:
+  Input:  [T=10, 768] + [T=10, 768]
+  Output: [10, 512]
+  Shape check [T, 768] + [T, 768] -> [T, 512]: PASSED
+  Batched shape check [B=2, T=10, 512]: PASSED
+
+[4/4] Gradient Flow Verification (PennyLane Autograd):
+  quantum_weights               : grad norm = 0.000001 [OK]
+  video_compress.weight         : grad norm = 0.000016 [OK]
+  video_compress.bias           : grad norm = 0.000001 [OK]
+  audio_compress.weight         : grad norm = 0.000006 [OK]
+  audio_compress.bias           : grad norm = 0.000000 [OK]
+  expand.weight                 : grad norm = 0.000002 [OK]
+  expand.bias                   : grad norm = 0.000001 [OK]
+  layernorm.weight              : grad norm = 219.980347 [OK]
+  layernorm.bias                : grad norm = 226.274170 [OK]
+  Gradient flow back through classical expansion, quantum circuit, and compression: PASSED
+
+============================================================
+GATE 9 VERIFICATION RESULT: PASSED
+============================================================

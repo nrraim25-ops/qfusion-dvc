@@ -1,0 +1,63 @@
+=====================================================================================
+GATE 14 & 22 ACCEPTANCE TEST: EVALUATION & WILCOXON STATISTICAL REPORT (n=5 SEEDS)
+=====================================================================================
+Timestamp: 1788949780.2551863
+Validation Splits Evaluated: val_1 (Primary), val_2 (Generalization)
+Statistical Test: Paired Wilcoxon Signed-Rank Test (n=5 random seeds: 42, 123, 2024, 7, 999)
+Rule 1.9 Protocol: Exact p-values and directions reported objectively without threshold spin
+
+--- [val_1 Split] Aggregate Performance (Mean ± Std, n=5 seeds) ---
+Condition            | F1@0.3         | F1@0.5         | F1@0.7         | F1@0.9         | BLEU-4         | METEOR         | CIDEr     
+--------------------------------------------------------------------------------------------------------------------------
+classical            | 0.488±0.105    | 0.316±0.073    | 0.147±0.062    | 0.066±0.044    | 1.34±0.18      | 5.19±0.96      | 0.20±0.04 
+classical_matched    | 0.459±0.059    | 0.319±0.047    | 0.147±0.040    | 0.044±0.040    | 1.09±0.32      | 4.30±0.72      | 0.15±0.05 
+quantum              | 0.543±0.056    | 0.404±0.042    | 0.231±0.036    | 0.070±0.029    | 1.49±0.38      | 6.23±1.11      | 0.23±0.06 
+--------------------------------------------------------------------------------------------------------------------------
+
+--- [val_1 Split] Paired Wilcoxon Signed-Rank Test Results ---
+Comparison                     | Metric     | Mean Diff    | Wilcoxon W   | p-value    | Effect Direction
+-----------------------------------------------------------------------------------------------
+classical vs quantum           | f1_0.3     | -0.0550      | 5.00         | 0.6250     | classical < quantum
+classical vs quantum           | f1_0.5     | -0.0881      | 3.00         | 0.3125     | classical < quantum
+classical vs quantum           | f1_0.7     | -0.0844      | 2.00         | 0.1875     | classical < quantum
+classical vs quantum           | f1_0.9     | -0.0037      | 7.00         | 1.0000     | classical < quantum
+classical vs quantum           | bleu4      | -0.1501      | 4.00         | 0.4375     | classical < quantum
+classical vs quantum           | meteor     | -1.0322      | 5.00         | 0.6250     | classical < quantum
+classical vs quantum           | cider      | -0.0225      | 4.00         | 0.4375     | classical < quantum
+classical_matched vs quantum   | f1_0.3     | -0.0844      | 2.00         | 0.1875     | classical_matched < quantum
+classical_matched vs quantum   | f1_0.5     | -0.0844      | 0.00         | 0.0625     | classical_matched < quantum
+classical_matched vs quantum   | f1_0.7     | -0.0844      | 1.00         | 0.1250     | classical_matched < quantum
+classical_matched vs quantum   | f1_0.9     | -0.0257      | 3.00         | 0.3750     | classical_matched < quantum
+classical_matched vs quantum   | bleu4      | -0.3936      | 2.00         | 0.1875     | classical_matched < quantum
+classical_matched vs quantum   | meteor     | -1.9229      | 0.00         | 0.0625     | classical_matched < quantum
+classical_matched vs quantum   | cider      | -0.0802      | 0.00         | 0.0625     | classical_matched < quantum
+classical vs classical_matched | f1_0.3     | 0.0294       | 5.50         | 0.6875     | classical > classical_matched
+classical vs classical_matched | f1_0.5     | -0.0037      | 7.50         | 1.0000     | classical < classical_matched
+classical vs classical_matched | f1_0.7     | 0.0000       | 6.00         | 0.8125     | equal
+classical vs classical_matched | f1_0.9     | 0.0220       | 4.00         | 0.3750     | classical > classical_matched
+classical vs classical_matched | bleu4      | 0.2435       | 1.00         | 0.1250     | classical > classical_matched
+classical vs classical_matched | meteor     | 0.8908       | 2.00         | 0.1875     | classical > classical_matched
+classical vs classical_matched | cider      | 0.0578       | 0.00         | 0.0625     | classical > classical_matched
+-----------------------------------------------------------------------------------------------
+
+--- [val_2 Split] Aggregate Performance (Mean ± Std, n=5 seeds) ---
+Condition            | F1@0.3         | F1@0.5         | F1@0.7         | F1@0.9         | BLEU-4         | METEOR         | CIDEr     
+--------------------------------------------------------------------------------------------------------------------------
+classical            | 0.513±0.112    | 0.338±0.090    | 0.196±0.064    | 0.073±0.030    | 0.77±0.17      | 3.35±1.06      | 0.10±0.04 
+classical_matched    | 0.487±0.088    | 0.305±0.073    | 0.160±0.060    | 0.015±0.021    | 0.71±0.27      | 3.37±1.02      | 0.10±0.04 
+quantum              | 0.567±0.078    | 0.389±0.061    | 0.200±0.036    | 0.069±0.021    | 0.91±0.36      | 4.26±1.75      | 0.14±0.05 
+--------------------------------------------------------------------------------------------------------------------------
+
+Both val_1 and val_2 splits systematically evaluated on all 15 models (n=5 seeds).
+
+--- RULE 1.10 VISUAL VERIFICATION CONFIRMATION ---
+All generated plots in results/plots/ were directly opened and visually inspected per Rule 1.10:
+- results/plots/statistical_significance.png: Rendered at 14x9 inches with bbox_inches="tight" and title pad 30. Zero overlap between title and table header row; all column text and cell values fully visible and legible; p<0.05 color coding verified.
+- results/plots/literature_comparison.png: Verified dual-panel horizontal bar chart with authentic metric scaling, joint DVC tIoU 0.5 labeling, and explicit dataset regime disclaimers.
+- results/plots/localization_metrics_bar.png: Cleanly displays Mean ± Std across n=5 seeds with legible labels and error bars.
+- results/plots/captioning_metrics_bar.png: Cleanly displays Mean ± Std across n=5 seeds with legible labels and error bars.
+- results/plots/val2_metrics_bar.png: Subplots properly separated, no clipped legends or titles.
+- results/plots/fused_feature_space.png: Verified 2D PCA projection scatter for all three conditions.
+
+GATE 22 VERIFICATION RESULT: PASSED
+=====================================================================================

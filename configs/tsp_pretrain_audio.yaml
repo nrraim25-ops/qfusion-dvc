@@ -1,0 +1,18 @@
+# Configuration for Audio Temporal Snippet Pretraining (TSP)
+modality: audio
+backbone: "MIT/ast-finetuned-audioset-10-10-0.4593"
+hidden_dim: 768
+snippet_duration: 2.0
+audio_sr: 16000
+samples_per_snippet: 32000
+
+# Training Hyperparameters
+batch_size: 16
+lr: 1.0e-4
+weight_decay: 1.0e-4
+max_epochs: 20
+patience: 3
+iou_threshold: 0.5 # 50% overlap rule for foreground labeling
+
+checkpoint_dir: "backbones/checkpoints/tsp_audio"
+save_path: "backbones/ast_tsp.pt"

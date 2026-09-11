@@ -1,0 +1,19 @@
+============================================================
+GATE 5 ACCEPTANCE TEST: AST AUDIO BACKBONE VERIFICATION
+============================================================
+Timestamp: 2026-09-09T13:54:07.770901
+Using device: cuda
+Loading real video audio: v_LFeoVokXAFY.mp4
+Input audio snippet batch shape: torch.Size([4, 32000]) (16kHz mono)
+
+Loading AST backbone (MIT/ast-finetuned-audioset-10-10-0.4593)...
+AST Model Loaded: 86,187,264 total parameters (86,187,264 trainable)
+Running forward feature extraction on audio batch...
+Extracted audio feature shape: torch.Size([4, 768])
+Output shape verification [T, 768]: PASSED (got torch.Size([4, 768]))
+Checking gradient flow through AST...
+AST Gradient Flow Test: PASSED
+
+============================================================
+GATE 5 VERIFICATION RESULT: PASSED
+============================================================

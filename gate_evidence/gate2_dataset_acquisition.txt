@@ -1,0 +1,48 @@
+============================================================
+GATE 2 & GATE 20 ACCEPTANCE TEST: DATASET ACQUISITION & SCALE-UP REPORT
+============================================================
+Timestamp: 2026-09-09T16:25:00
+Source: Official ActivityNet Captions via yt-dlp
+
+--- 1. STORAGE CAPACITY & FEASIBILITY AUDIT ---
+Available Disk Space: 71.77 GB
+Existing Raw Video Archive: 179 video files (985.7 MB on disk)
+Average Raw Video Size: 5.51 MB per video
+Average Feature Cache Overhead: ~1.41 MB per video
+Total Storage Cost: ~6.92 MB per video
+Target Scale-Up Size: 1,500 videos (1,200 train / 150 val_1 / 150 val_2)
+Estimated Storage Required for Target: 8.07 GB video + 2.12 GB features = ~10.19 GB
+Storage Feasibility: FEASIBLE (10.19 GB required << 71.77 GB available)
+
+--- 2. CANDIDATE AVAILABILITY & NETWORK PROBE (GATE 20) ---
+Probe Sample Size: 30 new candidate ActivityNet video URLs from train split
+Probe Results:
+  - Available: 5 videos (16.67% availability rate)
+  - Unavailable / Blocked: 25 videos (83.33% missing/blocked rate)
+Detailed Breakdown of Unavailable Videos:
+  - Video deleted / taken down: 14 (46.67%)
+  - Private video: 7 (23.33%)
+  - YouTube bot enforcement / Sign-in required: 4 (13.33%)
+Extrapolated Attempt Burden:
+  - To reach 1,500 videos at 16.7% yield: ~9,000 video attempts required
+  - To reach 500 minimum videos: ~3,000 video attempts required
+Operational Constraint:
+  - Sandboxed execution blocks external name resolution ([Errno -3] Temporary failure in name resolution).
+  - Unsandboxed access is subject to YouTube anti-scraping cookie walls ("Please sign in. Use --cookies-from-browser") and IP throttling.
+Conclusion: Scaling beyond the verified 160-video archive to >=500 videos is INFEASIBLE under autonomous execution without authenticated YouTube session cookies and extended network crawling.
+
+--- 3. ACTIVE DATASET SPLITS (VERIFIED & CACHED) ---
+Split      | Attempted  | Succeeded  | Missing/Deleted  | Missing Rate (%)
+------------------------------------------------------------------------
+train      | 154        | 130        | 24               | 15.58           
+val_1      | 16         | 15         | 1                | 6.25            
+val_2      | 17         | 15         | 2                | 11.76           
+------------------------------------------------------------------------
+OVERALL    | 187        | 160        | 27               | 14.44           
+
+val_1 Split Present: YES (15 videos, complete ViViT + AST feature cache)
+val_2 Split Present: YES (15 videos, complete ViViT + AST feature cache)
+Feature Cache Integrity: 100% verified (225 MB in data/features/)
+
+GATE 20 AUDIT STATUS: DOCUMENTED DEVIATION (DEC-004 logged in BLOCKED_LOG.md)
+============================================================
